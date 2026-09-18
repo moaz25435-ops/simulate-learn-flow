@@ -1,0 +1,337 @@
+/* DO NOT CHANGE */
+@import "tailwindcss";
+@import "tw-animate-css";
+@custom-variant dark (&:is(.dark *));
+
+/* DO NOT CHANGE */
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+/* Marginalia theme tokens (deep slate / electric lime / violet neon) */
+@theme {
+  --color-slate-deep: #121824;
+  --color-slate-panel: #182031;
+  --color-ink: #e9eef7;
+  --color-lime-neon: #a3e635;
+  --color-violet-neon: #8b5cf6;
+  --font-display: "Fraunces", ui-serif, Georgia, serif;
+  --font-hand: "Caveat", "Segoe Script", cursive;
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+}
+
+/* CHANGE VALUES FOR THEME */
+:root {
+  --radius: 1.25rem;
+  --background: #121824;
+  --foreground: #e9eef7;
+  --card: #161d2b;
+  --card-foreground: #e9eef7;
+  --popover: #182031;
+  --popover-foreground: #e9eef7;
+  --primary: #a3e635;
+  --primary-foreground: #131a08;
+  --secondary: #1e2637;
+  --secondary-foreground: #e9eef7;
+  --muted: #1a2233;
+  --muted-foreground: #93a0b8;
+  --accent: rgba(139, 92, 246, 0.2);
+  --accent-foreground: #ede9ff;
+  --destructive: #fb7185;
+  --border: #232d40;
+  --input: #1b2434;
+  --ring: #a3e635;
+  --chart-1: #a3e635;
+  --chart-2: #8b5cf6;
+  --chart-3: #38bdf8;
+  --chart-4: #fbbf24;
+  --chart-5: #fb7185;
+  --sidebar: #141b28;
+  --sidebar-foreground: #e9eef7;
+  --sidebar-primary: #a3e635;
+  --sidebar-primary-foreground: #131a08;
+  --sidebar-accent: rgba(139, 92, 246, 0.2);
+  --sidebar-accent-foreground: #ede9ff;
+  --sidebar-border: #232d40;
+  --sidebar-ring: #a3e635;
+
+  /* notebook surfaces */
+  --paper: #121824;
+  --rule: rgba(163, 230, 53, 0.07);
+  --rule-strong: rgba(233, 238, 247, 0.06);
+  --margin-line: rgba(139, 92, 246, 0.28);
+  --neu-light: rgba(255, 255, 255, 0.055);
+  --neu-dark: rgba(0, 0, 0, 0.55);
+  color-scheme: dark;
+}
+
+.dark {
+  --background: #121824;
+  --foreground: #e9eef7;
+  --card: #161d2b;
+  --card-foreground: #e9eef7;
+  --popover: #182031;
+  --popover-foreground: #e9eef7;
+  --primary: #a3e635;
+  --primary-foreground: #131a08;
+  --secondary: #1e2637;
+  --secondary-foreground: #e9eef7;
+  --muted: #1a2233;
+  --muted-foreground: #93a0b8;
+  --accent: rgba(139, 92, 246, 0.2);
+  --accent-foreground: #ede9ff;
+  --destructive: #fb7185;
+  --border: #232d40;
+  --input: #1b2434;
+  --ring: #a3e635;
+  --chart-1: #a3e635;
+  --chart-2: #8b5cf6;
+  --chart-3: #38bdf8;
+  --chart-4: #fbbf24;
+  --chart-5: #fb7185;
+  --sidebar: #141b28;
+  --sidebar-foreground: #e9eef7;
+  --sidebar-primary: #a3e635;
+  --sidebar-primary-foreground: #131a08;
+  --sidebar-accent: rgba(139, 92, 246, 0.2);
+  --sidebar-accent-foreground: #ede9ff;
+  --sidebar-border: #232d40;
+  --sidebar-ring: #a3e635;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "cv02", "cv03", "cv04";
+    -webkit-font-smoothing: antialiased;
+  }
+  button:not([disabled]),
+  [role="button"]:not([disabled]) {
+    cursor: pointer;
+  }
+  ::selection {
+    background: rgba(163, 230, 53, 0.28);
+  }
+}
+
+@layer components {
+  /* ---------- paper & notebook chrome ---------- */
+
+  /* Textured paper: fine grain + faint fibre streaks, layered under content. */
+  .paper-grain {
+    position: relative;
+    isolation: isolate;
+  }
+  .paper-grain::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.05;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23g)'/%3E%3C/svg%3E");
+  }
+  /* Decorative absolute overlays should read above the grain layer. */
+  .paper-grain > [class*="absolute"] {
+    z-index: 2;
+  }
+
+  /* Ruled notebook page with a violet margin line. */
+  .notebook-page {
+    background-color: var(--paper);
+    background-image:
+      repeating-linear-gradient(
+        to bottom,
+        transparent 0 31px,
+        var(--rule-strong) 31px 32px
+      ),
+      radial-gradient(
+        120% 80% at 12% -10%,
+        rgba(139, 92, 246, 0.16),
+        transparent 60%
+      ),
+      radial-gradient(
+        90% 60% at 100% 0%,
+        rgba(163, 230, 53, 0.08),
+        transparent 55%
+      );
+  }
+
+  .notebook-margin::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 34px;
+    width: 1px;
+    background: linear-gradient(
+      to bottom,
+      transparent,
+      var(--margin-line) 12%,
+      var(--margin-line) 88%,
+      transparent
+    );
+    pointer-events: none;
+  }
+
+  /* Graph-paper field behind every simulation viewport. */
+  .sim-grid {
+    background-color: #0f141f;
+    background-image:
+      linear-gradient(to right, rgba(233, 238, 247, 0.045) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(233, 238, 247, 0.045) 1px, transparent 1px),
+      linear-gradient(to right, rgba(163, 230, 53, 0.09) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(163, 230, 53, 0.09) 1px, transparent 1px),
+      radial-gradient(120% 90% at 50% -10%, rgba(139, 92, 246, 0.18), transparent 60%);
+    background-size:
+      28px 28px,
+      28px 28px,
+      140px 140px,
+      140px 140px,
+      100% 100%;
+    box-shadow:
+      inset 0 0 70px -18px rgba(0, 0, 0, 0.95),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+  }
+
+  .rule-lines {
+    background-image: repeating-linear-gradient(
+      to bottom,
+      transparent 0 27px,
+      var(--rule) 27px 28px
+    );
+  }
+
+  /* ---------- neumorphic surfaces ---------- */
+
+  .neu-raise {
+    background:
+      linear-gradient(150deg, rgba(255, 255, 255, 0.045), rgba(0, 0, 0, 0.14)),
+      var(--card);
+    box-shadow:
+      0 1px 0 0 rgba(255, 255, 255, 0.06) inset,
+      0 -1px 0 0 rgba(0, 0, 0, 0.5) inset,
+      0 24px 50px -28px rgba(0, 0, 0, 0.85),
+      0 2px 10px -6px rgba(0, 0, 0, 0.6);
+  }
+
+  .neu-raise-soft {
+    background:
+      linear-gradient(150deg, rgba(255, 255, 255, 0.035), rgba(0, 0, 0, 0.1)),
+      var(--background);
+    box-shadow:
+      0 1px 0 0 rgba(255, 255, 255, 0.05) inset,
+      0 18px 36px -26px rgba(0, 0, 0, 0.8);
+  }
+
+  .neu-sink {
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.1));
+    box-shadow:
+      0 2px 6px 0 rgba(0, 0, 0, 0.6) inset,
+      0 -1px 0 0 rgba(255, 255, 255, 0.05) inset;
+  }
+
+  .inner-glow-lime {
+    box-shadow:
+      inset 0 0 0 1px rgba(163, 230, 53, 0.28),
+      inset 0 0 42px -12px rgba(163, 230, 53, 0.4);
+  }
+
+  .inner-glow-violet {
+    box-shadow:
+      inset 0 0 0 1px rgba(139, 92, 246, 0.3),
+      inset 0 0 48px -14px rgba(139, 92, 246, 0.45);
+  }
+
+  .text-glow-lime {
+    text-shadow: 0 0 18px rgba(163, 230, 53, 0.45);
+  }
+  .text-glow-violet {
+    text-shadow: 0 0 18px rgba(139, 92, 246, 0.5);
+  }
+
+  /* Hand-drawn annotation feel */
+  .hand {
+    font-family: var(--font-hand);
+    font-weight: 600;
+    letter-spacing: 0.01em;
+  }
+
+  .tick-label {
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.06em;
+  }
+
+  .scrollbar-thin-neu {
+    scrollbar-width: thin;
+    scrollbar-color: #263149 transparent;
+  }
+  .scrollbar-thin-neu::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  .scrollbar-thin-neu::-webkit-scrollbar-thumb {
+    background: #263149;
+    border-radius: 999px;
+  }
+  .scrollbar-thin-neu::-webkit-scrollbar-track {
+    background: transparent;
+  }
+}
+
+@layer utilities {
+  .mask-fade-b {
+    mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+  }
+  .balancing {
+    text-wrap: balance;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
